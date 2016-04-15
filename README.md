@@ -1,7 +1,7 @@
     
 ```    
-git clone --depth=1 https://github.com/angular/angular-seed.git ang-app
-cd ang-app
+git clone https://github.com/akkidas/verse-app.git
+cd verse-app
 npm install
 npm start
 ```
