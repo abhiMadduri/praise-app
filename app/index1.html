@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            width: 50%
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #eee;
+        }
+        
+        table tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        
+        table th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>1000 Praises</h1>
+    <div id="tableData"></div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+var url = "data.json";
+ 
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    console.log(arr.length);
+    var i;
+    var out = "<table>";
+    
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].id +
+        "</td><td>" +
+        arr[i].Praises +
+        "</td><td>" +
+        arr[i].Verses +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("tableData").innerHTML = out;
+}
+    </script>
+
+</body>
+
+</html>
