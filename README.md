@@ -1,7 +1,7 @@
     
 ```    
-git clone https://github.com/abhiMadduri/praise-app.git
-cd praise-app
+git clone https://github.com/akkidas/verse-app.git
+cd verse-app
 npm install
 npm start
 ```
