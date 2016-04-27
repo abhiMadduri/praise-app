@@ -1,35 +1,62 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Hello World</title>
-        <meta name="description" content="">
+        <title>1000 Praises</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="site.css">
-    </head>
-    <body onload="init()">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em;
+            }
+        </style>
         
-        <div class = "container">
-            <h2> 1000 Praises </h2>
-            <table class = "table table-striped">
-                <thead>
-                    <th>S.No</th>
-                    <th>Praise</th>
-                    <th>Verse in the Bible</th>
-                </thead>
-            </table>
-        </div>
+        <!-- load angular via CDN -->
+        <script src="//code.angularjs.org/1.5.5/angular.min.js"></script>
+        <script src="app1.js"></script>
+    </head>
+    <body>
 
-        <script src="app.js"></script>
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">1000 Praises</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i></a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+
+            <div ng-controller="mainController">
+
+                <div class="container">
+             
+                    <table class="table table-striped">
+                        <thead>
+                            <th>S.No</th>
+                            <th>Praise</th>
+                            <th>Verse in the Bible</th>
+                        </thead>
+                        <tr ng-repeat="data in dataArray"> 
+                            <td> {{data.id}} </td>
+                            <td> {{data.Praises}} </td>
+                            <td> {{data.Verses}} </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
     </body>
 </html>

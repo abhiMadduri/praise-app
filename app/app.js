@@ -1,23 +1,8 @@
-function loadJSON(callback) {   
+var myApp = angular.module('myApp', []);
 
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'data.json', true);
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return 
-            // a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);  
- }
- 
- // loading json data
- function init() {
-     loadJSON(function(response) {
-        //Parse JSON string into object
-        var data = JSON.parse(response);
-         alert(data[0].id);
-     });
- }
+myApp.controller('mainController', function($scope, $http) {
+    
+    $http.get('data.json').success(function(data) {
+        $scope.dataArray = data;
+    });  
+});
