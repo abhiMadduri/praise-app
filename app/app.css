@@ -1,6 +1,15 @@
 /* app css stylesheet */
+html {
+  font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 112.5%
+}
 
-html, body, input, select, textarea
-{
-  font-size: 1.05em;
+body {
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 400;
+    letter-spacing: normal;
+    background-color: #fff;
+    color: #333;
+    font-style: normal
 }
