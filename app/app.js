@@ -1,8 +1,13 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', function($scope, $http) {
+myApp.controller('praiseController', function($scope, $http) {
     
-    $scope.dataList = [];
+    $http.get('praises_telugu.json')
+    .success(function(data) {
+        $scope.dataList = data;
+    });
+    
+    
     $scope.nameFilter = null;
     
     $scope.praiseFilter = function(data) {
@@ -10,9 +15,7 @@ myApp.controller('mainController', function($scope, $http) {
         return !$scope.nameFilter || keyword.test(data.Praises);
     };
     
-    $http.get('data.json').success(function(data) {
-        $scope.dataList = data;
-    });  
+      
     
     //pagination
     $scope.currentPage = 0;
