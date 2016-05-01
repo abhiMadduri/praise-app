@@ -10,7 +10,7 @@ body {
     font-size: 14px;
     letter-spacing: normal;
     background-color: #f5f5f5;
-    color: #333;
+    color: #39464E;
     line-height: 1.42857142857143;
     
     /* Move down content because we have a fixed navbar that is 50px tall */
@@ -18,20 +18,38 @@ body {
     padding-bottom: 20px;
 }
 
+/* #205081 blue */
 .appNav {
-  background: #205081;
-  border-bottom: 1px solid #2e3D54;
-  box-sizing: border-box;
+  background: white;
+  /*border-bottom: 1px solid #2e3D54;
+  box-sizing: border-box;*/
+  box-shadow: 0 0 5px rgba(57, 70, 78, .2);
   padding: 0 10px;
   width: 100%;
+  z-index: 100;
 }
 
 /*.nav.navbar-nav.navbar-right li a {
-    color: #fff;
+    color: #d3d3d3;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+  background: #205081;
+  color: #fff;
 }*/
 
-.dropdown-menu li a{
-  color: #333;
+nav a {
+    border-bottom: 2px solid white; /* define a light blue border for the link */
 }
+nav a.active {
+    border-bottom: 2px solid #1C90F3; /* simulate increase in white color */
+}
+nav a:hover {
+    border-bottom-color: #1C90F3; /* change border-color to green on hover */
+}
+/*nav li {
+    border-bottom: 2px solid #205081; /* constant light blue border 
+}
+*/
 
 

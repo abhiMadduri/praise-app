@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('praiseController', function($scope, $http) {
     
-    $http.get('praises_telugu.json')
+    $http.get('praises_english.json')
     .success(function(data) {
         $scope.dataList = data;
     });

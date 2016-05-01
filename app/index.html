@@ -20,7 +20,7 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p>
         <![endif]-->
-       
+
     <header id="header">
         <nav class="navbar navbar-default navbar-fixed-top appNav">
             <div class="container-fluid">
@@ -40,15 +40,18 @@
                         <li><a href="#/view1">Songs</a></li>
                         <li><a href="#/view2">Bible</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Links 
+                                <span class="caret"></span>
+                                </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">KJV</a></li>
-                                <li><a href="#">NKJV</a></li>
-                                <li><a href="#">NIV</a></li>
+                                <li class="dropdown-link"><a href="#">KJV</a></li>
+                                <li class="dropdown-link"><a href="#">NKJV</a></li>
+                                <li class="dropdown-link"><a href="#">NIV</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Faq's</a></li>
+                                <li class="dropdown-link"><a href="#">Faq's</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Contact us</a></li>
+                                <li class="dropdown-link"><a href="#">Contact us</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -59,11 +62,12 @@
                         </div>
                     </form>
                 </div>
-            </div><!--  End of container fluid-->
-     
+            </div>
+            <!--  End of container fluid-->
+
         </nav>
     </header>
-    
+
     <!-- Main Content -->
     <div class="content">
         <div ng-controller="praiseController" class="container">
