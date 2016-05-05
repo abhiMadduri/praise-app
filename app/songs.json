@@ -9,9 +9,23 @@
             "lyric_language": "en",
             "lyrics": "Adavi Chetla Naduma \n Oka Jaldaru Vruksham Vale \n Parishuddula Samaajamulo \n Yesu Prajvalinchuchunnaadu (2) \nKeerthinthunNaaPrabhuni\nJeevaKaalamellaPrabhuYesuni\nKruthagnathathoSthuthinchedanu(2)",
             "hidden": false,
-            "tags": ["Adavi", "Naduma", "telugu", "Andhra Christian Songs"],
-            "created": "2012-04-08T21:37:06.000Z",
+            "tags": [
+                "Adavi",
+                "Naduma",
+                "telugu",
+                "Andhra Christian Songs"
+            ],
+            "thumbnail": {
+                "sqDefault": "http://uecf.net/images/souvenir.jpg",
+                "hqDefault": "http://uecf.net/images/souvenir.jpg"
+            },
+            "video_links": [
+                "http://youtube.com/testtest"
+            ],
+            "added_at": "2012-04-08T21:37:06.000Z",
             "updated": "2012-04-08T21:37:06.000Z",
+            "added_by": "system",
+            "likeCount": 5,
             "viewCount": 12,
             "favoriteCount": 15
         },
@@ -24,9 +38,23 @@
             "lyric_language": "en",
             "lyrics": "Adavi Chetla Naduma \n Oka Jaldaru Vruksham Vale \n Parishuddula Samaajamulo \n Yesu Prajvalinchuchunnaadu (2) \nKeerthinthunNaaPrabhuni\nJeevaKaalamellaPrabhuYesuni\nKruthagnathathoSthuthinchedanu(2)",
             "hidden": false,
-            "tags": ["Adavi", "Naduma", "telugu", "Andhra Christian Songs"],
-            "created": "2012-04-08T21:37:06.000Z",
+            "tags": [
+                "Adavi",
+                "Naduma",
+                "telugu",
+                "Andhra Christian Songs"
+            ],
+            "thumbnail": {
+                "sqDefault": "http://uecf.net/images/souvenir.jpg",
+                "hqDefault": "http://uecf.net/images/souvenir.jpg"
+            },
+            "video_links": [
+                "http://youtube.com/testtest"
+            ],
+            "added_at": "2012-04-08T21:37:06.000Z",
             "updated": "2012-04-08T21:37:06.000Z",
+            "added_by": "system",
+            "likeCount": 5,
             "viewCount": 12,
             "favoriteCount": 15
         }
