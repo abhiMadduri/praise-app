@@ -1,0 +1,34 @@
+{
+    "songs": [
+        {
+            "id": 1,
+            "title": "Adavi Chetla Naduma",
+            "author": "",
+            "category": "Andhra Christian Songs",
+            "language": "tel",
+            "lyric_language": "en",
+            "lyrics": "Adavi Chetla Naduma \n Oka Jaldaru Vruksham Vale \n Parishuddula Samaajamulo \n Yesu Prajvalinchuchunnaadu (2) \nKeerthinthunNaaPrabhuni\nJeevaKaalamellaPrabhuYesuni\nKruthagnathathoSthuthinchedanu(2)",
+            "hidden": false,
+            "tags": ["Adavi", "Naduma", "telugu", "Andhra Christian Songs"],
+            "created": "2012-04-08T21:37:06.000Z",
+            "updated": "2012-04-08T21:37:06.000Z",
+            "viewCount": 12,
+            "favoriteCount": 15
+        },
+        {
+            "id": 2,
+            "title": "Adavi Chetla Naduma",
+            "author": "",
+            "category": "Andhra Christian Songs",
+            "language": "tel",
+            "lyric_language": "en",
+            "lyrics": "Adavi Chetla Naduma \n Oka Jaldaru Vruksham Vale \n Parishuddula Samaajamulo \n Yesu Prajvalinchuchunnaadu (2) \nKeerthinthunNaaPrabhuni\nJeevaKaalamellaPrabhuYesuni\nKruthagnathathoSthuthinchedanu(2)",
+            "hidden": false,
+            "tags": ["Adavi", "Naduma", "telugu", "Andhra Christian Songs"],
+            "created": "2012-04-08T21:37:06.000Z",
+            "updated": "2012-04-08T21:37:06.000Z",
+            "viewCount": 12,
+            "favoriteCount": 15
+        }
+    ]
+}
