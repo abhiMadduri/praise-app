@@ -1,48 +1,41 @@
 <div class="content">
-    <form class="navbar-form navbar-right" role="search">
+    <form class="navbar-form navbar-right" >
         <div class="form-group">
-            <input type="text" ng-model="praiseFilter" class="form-control" placeholder="Search">
+            <input type="text" ng-model="praiseFilter" class="form-control empty" placeholder="Search..." >
         </div>
-        <div ng-controller="praiseController" class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" data-ng-model="lang" value="en" autocomplete="off" checked> English
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2" data-ng-model="lang" value="tel"  autocomplete="off"> Telugu
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option3" data-ng-model="lang" value="par" autocomplete="off"> Parallel
-            </label>
+        <div class="btn-group">
+            <button ng-click="buttonClick('/praise/en')" class="btn btn-primary sm">English</button>
+            <button ng-click="buttonClick('/praise/tel')" class="btn btn-primary sm">Telugu</button>
         </div>
+        
     </form>
     
     <div ng-controller="praiseController" class="container">
         <div class="container">
-
             <table class="table table-striped">
                 <thead>
                     <th>S.No</th>
                     <th>Praise</th>
                     <th>Verse</th>
                 </thead>
-                <tr ng-repeat="data in dataList | filter:praiseFilter |
-                    pagination: currentPage * pageSize | limitTo: pageSize">
+                <tr ng-repeat="data in dataList | filter:searchFilter | pagination: currentPage * pageSize | limitTo: pageSize">
                     <td> {{data.id}} </td>
                     <td> {{data.Praises}} </td>
                     <td> {{data.Verses}} </td>
                 </tr>
             </table>
         </div>
+        
         <div class="pagination pagination-centered" ng-show="dataList.length">
             <ul class="pagination-control pagination">
                 <li>
-                    <button type="button" class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">&lt; PREV</button>
+                    <button type="button" class="btn btn-primary sm" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">&lt; PREV</button>
                 </li>
                 <li>
                     <span>Page {{currentPage + 1}} of {{ numberOfPages() }}</span>
                 </li>
                 <li>
-                    <button type="button" class="btn btn-primary" ng-disabled="currentPage >= dataList.length/pageSize - 1" ng-click="currentPage = currentPage+1">NEXT &gt;</button>
+                    <button type="button" class="btn btn-primary sm" ng-disabled="currentPage >= dataList.length/pageSize - 1" ng-click="currentPage = currentPage+1">NEXT &gt;</button>
                 </li>
             </ul>
         </div>

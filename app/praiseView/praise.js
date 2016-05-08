@@ -2,47 +2,54 @@
 
 angular.module('myApp.praise', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/praise/:lang', {
-    templateUrl: 'praiseView/praise.html',
-    controller: 'praiseController'
-  });
-}])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/praise/:lang', {
+            templateUrl: 'praiseView/praise.html',
+            controller: 'praiseController'
+        });
+    }])
 
-.controller('praiseController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-    
-    var jsonfile;
-   
-    if($routeParams.lang === "en") {
-        jsonfile = 'praiseView/praises_english.json';
-    } else if($routeParams.lang === "tel") {
-        jsonfile = 'praiseView/praises_telugu.json';
-    }
-    
-    $http.get(jsonfile)
-    .success(function(data) {
-        $scope.dataList = data;
-    });
-    
-    $scope.nameFilter = null;
-    
-    $scope.praiseFilter = function(data) {
-        var keyword = new RegExp($scope.nameFilter, 'i');
-        return !$scope.nameFilter || keyword.test(data.Praises);
-    };
-    
-    //pagination
-    $scope.currentPage = 0;
-    $scope.pageSize = 10;
-    $scope.numberOfPages = function() {
-        return Math.ceil($scope.dataList.length/$scope.pageSize);
-    }
-       
-}])
+    .controller('praiseController', ['$scope', '$routeParams', '$location', '$http', function ($scope, $routeParams, $location, $http) {
 
-.filter('pagination', [function() {
-   return function(input, start) {
-       start = +start;
-       return input.slice(start);
-   } 
-}]);
+        var jsonfile;
+        var val = $routeParams.lang;
+        if (val === "en") {
+            jsonfile = 'praiseView/praises_english.json';
+        } else if (val === "tel") {
+            jsonfile = 'praiseView/praises_telugu.json';
+        }
+
+        $scope.buttonClick = function (path) {
+            $location.path(path);
+        }
+
+        $http.get(jsonfile)
+            .success(function (data) {
+                $scope.dataList = data;
+            });
+
+        $scope.searchFilter = function (data) {
+            var keyword = new RegExp($scope.praiseFilter, 'i');
+            return !$scope.praiseFilter || keyword.test(data.Praises);
+        };
+
+        //pagination
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.numberOfPages = function () {
+            if ($scope.dataList == undefined) {
+                return 0;
+            }
+            return Math.ceil($scope.dataList.length / $scope.pageSize);
+        }
+
+    }])
+
+    .filter('pagination', [function () {
+        return function (input, start) {
+            if (input == null) { return ""; }
+            start = +start;
+            return input.slice(start);
+        }
+    }]
+    );
