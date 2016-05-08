@@ -38,7 +38,19 @@
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#/praise">1000 Praises<span class="sr-only">(current)</span></a></li>
-                        <li><a href="#/song">Songs</a></li>
+                        <!--<li><a href="#/song">Songs</a></li>-->
+                        <li class="dropdown">
+                            <a href="#/songs/tel" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Christian Songs 
+                                <span class="caret"></span>
+                                </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-link"><a href="#/songs/tel">Telugu</a></li>
+                                <li class="dropdown-link"><a href="#/songs/en">English</a></li>
+                                <li class="dropdown-link"><a href="#/songs/ss">Kids Sunday School</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/quotes/en">Quotes</a></li>
                         <li><a href="#/view2">Bible</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -88,7 +100,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
     <script src="app.js"></script>
     <script src="praiseView/praise.js"></script>
-    <script src="songView/song.js"></script>
+    <script src="songView/songs.js"></script>
+    <script src="quoteView/quotes.js"></script>
 </body>
 
 </html>

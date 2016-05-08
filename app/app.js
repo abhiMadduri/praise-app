@@ -4,7 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.praise',
-  'myApp.song'
+  'myApp.songs',
+  'myApp.quotes'
 ]).config(['$routeProvider', function($routeProvider) {
    $routeProvider.otherwise({redirectTo: '/praise/en'});
 }]);
