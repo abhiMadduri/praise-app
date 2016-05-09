@@ -12,10 +12,11 @@ angular.module('myApp.praise', ['ngRoute'])
     .controller('praiseController', ['$scope', '$routeParams', '$location', '$http', function ($scope, $routeParams, $location, $http) {
 
         var jsonfile;
-        var val = $routeParams.lang;
-        if (val === "en") {
+        var locale = $routeParams.lang;
+        
+        if (locale === "en") {
             jsonfile = 'praiseView/praises_english.json';
-        } else if (val === "tel") {
+        } else if (locale === "tel") {
             jsonfile = 'praiseView/praises_telugu.json';
         }
 
@@ -23,8 +24,7 @@ angular.module('myApp.praise', ['ngRoute'])
             $location.path(path);
         }
 
-        $http.get(jsonfile)
-            .success(function (data) {
+        $http.get(jsonfile).success(function (data) {
                 $scope.dataList = data;
             });
 
@@ -42,6 +42,15 @@ angular.module('myApp.praise', ['ngRoute'])
             }
             return Math.ceil($scope.dataList.length / $scope.pageSize);
         }
+        
+        $('#pagination').twbsPagination({
+            totalPages: "100",
+            visiblePages: "10",
+            onPageClick: function (event, page) {
+                $scope.currentPage = page;
+                //alert('page is now: ' + page);
+            }
+        });
 
     }])
 
@@ -53,15 +62,3 @@ angular.module('myApp.praise', ['ngRoute'])
         }
     }]
     );
-
-
-$(document).ready(function () {
-    $('#pagination-demo').twbsPagination({
-        totalPages: 35,
-        visiblePages: 7,
-        onPageClick: function (event, page) {
-            $('#page-content').text('Page ' + page);
-        }
-    });
-})
-

@@ -26,21 +26,20 @@
 
     <!-- Pagination -->
     <div class="col-md-12 text-center" ng-show="dataList.length">
+
+        <ul id="pagination"></ul>
+
+        <span>Page {{currentPage + 1}} of {{ numberOfPages() }}</span>
+
         <nav>
-            <ul id="pagination-demo" class="pagination-sm"></ul>
-
-            <span>Page {{currentPage + 1}} of {{ numberOfPages() }}</span>
-
             <ul class="pager">
                 <li>
-                    <a href ng-disabled="currentPage == 0" 
-                    ng-click="currentPage = currentPage-1">
+                    <a href ng-disabled="currentPage == 0" ng-click="currentPage = currentPage-1">
                         <span aria-hidden="true">&larr;</span> Previous
                     </a>
                 </li>
                 <li>
-                    <a href ng-disabled="currentPage >= dataList.length/pageSize - 1" 
-                        ng-click="currentPage = currentPage+1">Next 
+                    <a href ng-disabled="currentPage >= dataList.length/pageSize - 1" ng-click="currentPage = currentPage+1">Next 
                         <span aria-hidden="true">&rarr;</span>
                     </a>
                 </li>
@@ -48,5 +47,5 @@
         </nav>
     </div>
     <!-- End of Pagination -->
-    
+
 </div>
