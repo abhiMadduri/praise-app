@@ -1,0 +1,21 @@
+<div ng-controller="songController" class="container">
+    <form class="navbar-form navbar-left">
+        <h4>{{songView}} Songs List</h4>
+    </form>
+    <form class="navbar-form navbar-right" >
+        <div class="btn-group">
+            <button ng-click="buttonClick('/songs/en')" class="btn btn-primary sm">English</button>
+            <button ng-click="buttonClick('/songs/tel')" class="btn btn-primary sm">Telugu</button>
+        </div>
+        
+    </form>
+    
+    
+        <div class="container">
+            <table class="table table-striped">
+                <tr ng-repeat="data in dataList.songs" ng-show="data.id == 1" >
+                    <td> {{data.lyrics_tel}} </td>
+                </tr>
+            </table>
+        </div>
+</div>

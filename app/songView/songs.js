@@ -3,8 +3,13 @@
 angular.module('myApp.songs', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/songs/:lang', {
+  $routeProvider.
+  when('/songs/:lang', {
     templateUrl: 'songView/songs.html',
+    controller: 'songController'
+  }).
+  when('/songs/:lang/:id', {
+    templateUrl: 'songView/song.html',
     controller: 'songController'
   });
 }])
@@ -12,24 +17,34 @@ angular.module('myApp.songs', ['ngRoute'])
 .controller('songController', ['$scope', '$routeParams', '$location', '$http', function ($scope, $routeParams, $location, $http) {
 
         var jsonfile;
-        var val = $routeParams.lang;
-        if (val === "en") {
+        var locale = $routeParams.lang;
+        $scope.songId = $routeParams.id;
+        if($routeParams.id != null) {
+           // console("songID : " + songId);
+        }
+        
+        
+        if (locale === "en") {
             $scope.songView = "English";
             jsonfile = 'songView/songs_english.json';
-        } else if (val === "tel") {
+        } else if (locale === "tel") {
             $scope.songView = "Telugu"
             jsonfile = 'songView/songs_telugu.json';
-        } else if (val === "ss") {
+        } else if (locale === "ss") {
             $scope.songView = "Sunday School"
             jsonfile = 'songView/songs_sundayschool.json';
         }
 
         $scope.buttonClick = function (path) {
+            console.log("Btn click= " +path);
             $location.path(path);
         }
         
         $scope.linkClicked = function (path) {
-            console.log(path);
+            
+            var url = "/songs/tel/" + path;
+            console.log("link clicked.. " + url);
+            $location.path(url);
         }
 
         $http.get(jsonfile)

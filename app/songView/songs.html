@@ -1,5 +1,7 @@
-<div class="content">
-    <h2>Songs List</h2>
+<div ng-controller="songController" class="container">
+    <form class="navbar-form navbar-left">
+        <h4>{{songView}} Songs List</h4>
+    </form>
     <form class="navbar-form navbar-right" >
         <div class="form-group">
             <input type="text" ng-model="songsFilter" class="form-control empty" placeholder="Search Song Name..." >
@@ -11,18 +13,18 @@
         
     </form>
     
-    <div ng-controller="songController" class="container">
+    
         <div class="container">
             <table class="table table-striped">
                
-                <tr ng-repeat="data in dataList | filter:songSearchFilter | pagination: currentPage * pageSize | limitTo: pageSize">
+                <tr ng-repeat="data in dataList.songs | filter:songSearchFilter | pagination: currentPage * pageSize | limitTo: pageSize">
                     <td> {{data.id}} </td>
-                    <!--<td> <a ng-href="{{data.title}}" ng-click="$event.preventDefault(); linkClicked(data.title)">{{data.title}}</a> </td>-->
+                    <td> <a ng-href="{{data.title}}" ng-click="$event.preventDefault(); linkClicked(data.id)">{{data.title}}</a> </td>
                 </tr>
             </table>
         </div>
         
-        <div class="pagination pagination-centered" ng-show="dataList.length">
+        <!--<div class="pagination pagination-centered" ng-show="dataList.length">
             <ul class="pagination-control pagination">
                 <li>
                     <button type="button" class="btn btn-primary sm" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">&lt; PREV</button>
@@ -34,6 +36,5 @@
                     <button type="button" class="btn btn-primary sm" ng-disabled="currentPage >= dataList.length/pageSize - 1" ng-click="currentPage = currentPage+1">NEXT &gt;</button>
                 </li>
             </ul>
-        </div>
-    </div>
-</div>
+        </div>-->
+ </div>

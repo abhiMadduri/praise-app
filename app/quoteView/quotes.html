@@ -1,6 +1,10 @@
-<div class="content">
-    <h3> Collection of Christian Quotes & Phrases from various Evangelists, Authors and believers like you.. </h3>
-    <h5> To inspire in our journey of Christian faith. </h5>
+<div ng-controller="quoteController" class="container">
+
+    <form class="navbar-form navbar-left" >
+    <h4> Collection of Christian Quotes & Phrases from various Evangelists, Authors </h4>
+    <h4>and believers like you.. </h4>
+    <!--<h6> To inspire in our journey of Christian faith. </h6>-->
+    </form>
     <form class="navbar-form navbar-right" >
         <div class="form-group">
             <input type="text" ng-model="quoteFilter" class="form-control empty" placeholder="Search..." >
@@ -12,7 +16,7 @@
         
     </form>
     
-    <div ng-controller="quoteController" class="container">
+    
         <div class="container">
             <table class="table table-striped">
                 <thead>
@@ -39,5 +43,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+   
 </div>
