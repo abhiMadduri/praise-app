@@ -26,9 +26,11 @@ angular.module('myApp.songs', ['ngRoute'])
         
         if (locale === "en") {
             $scope.songView = "English";
+            $scope.songLang = "eng";
             jsonfile = 'songView/songs_english.json';
         } else if (locale === "tel") {
-            $scope.songView = "Telugu"
+            $scope.songView = "Telugu";
+            $scope.songLang = "tel";
             jsonfile = 'songView/songs_telugu.json';
         } else if (locale === "ss") {
             $scope.songView = "Sunday School"
@@ -37,12 +39,15 @@ angular.module('myApp.songs', ['ngRoute'])
 
         $scope.buttonClick = function (path) {
             console.log("Btn click= " +path);
-            $location.path(path);
+            var str = $location.url().split("/");
+            var id = str[str.length-1];
+            //console.log("url: "+ );
+            $location.path(path + "/" +id);
         }
         
         $scope.linkClicked = function (path) {
             
-            var url = "/songs/tel/" + path;
+            var url = $location.url() + "/" + path;
             console.log("link clicked.. " + url);
             $location.path(url);
         }

@@ -14,7 +14,7 @@
     </form>
     
     
-        <div class="container">
+        <div class="container" ng-model="songsModel">
             <table class="table table-striped">
                
                 <tr ng-repeat="data in dataList.songs | filter:songSearchFilter | pagination: currentPage * pageSize | limitTo: pageSize">

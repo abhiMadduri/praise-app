@@ -11,10 +11,16 @@
     </form>
     
     
-        <div class="container">
+        <div class="container" ng-switch="songsModel">
+            
             <table class="table table-striped">
                 <tr ng-repeat="data in dataList.songs" ng-show="data.id == 1" >
-                    <td> {{data.lyrics_tel}} </td>
+                     <div ng-switch-when="tel">
+                       <td> {{data.lyrics_tel}} </td>
+                    </div>
+                    <div ng-switch-when="eng">
+                       <td> {{data.lyrics_en}} </td>
+                    </div>
                 </tr>
             </table>
         </div>
