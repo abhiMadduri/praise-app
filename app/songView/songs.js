@@ -18,45 +18,47 @@ angular.module('myApp.songs', ['ngRoute'])
 
         var jsonfile;
         var locale = $routeParams.lang;
-        $scope.songId = $routeParams.id;
-        if($routeParams.id != null) {
-           // console("songID : " + songId);
-        }
-        
-        
-        if (locale === "en") {
+                
+        if (locale === "eng") {
             $scope.songView = "English";
-            $scope.songLang = "eng";
             jsonfile = 'songView/songs_english.json';
-        } else if (locale === "tel") {
+        } else if (locale === "tel" || locale == "en") {
             $scope.songView = "Telugu";
-            $scope.songLang = "tel";
             jsonfile = 'songView/songs_telugu.json';
         } else if (locale === "ss") {
             $scope.songView = "Sunday School"
             jsonfile = 'songView/songs_sundayschool.json';
         }
-
+        
+       $http.get(jsonfile)
+            .success(function (data) {
+                $scope.dataList = data;
+                if($routeParams.id === undefined) {
+                    return;
+                }
+                var songObject = $scope.dataList.songs[$routeParams.id];
+                if($routeParams.lang === "tel") {
+                   $scope.selectedSong = songObject["lyrics_tel"];
+                } else if($routeParams.lang === "en" || $routeParams.lang === "eng") {
+                   $scope.selectedSong = songObject["lyrics_en"];
+                }
+            }); 
+ 
         $scope.buttonClick = function (path) {
-            console.log("Btn click= " +path);
             var str = $location.url().split("/");
+            var lang = str[str.length - 2];
             var id = str[str.length-1];
-            //console.log("url: "+ );
+           
             $location.path(path + "/" +id);
         }
         
         $scope.linkClicked = function (path) {
-            
-            var url = $location.url() + "/" + path;
+           var url = $location.url() + "/" + path;
             console.log("link clicked.. " + url);
             $location.path(url);
         }
 
-        $http.get(jsonfile)
-            .success(function (data) {
-                $scope.dataList = data;
-            });
-
+  
         $scope.songSearchFilter = function (data) {
             var keyword = new RegExp($scope.songsFilter, 'i');
             return !$scope.songsFilter || keyword.test(data.Praises);
