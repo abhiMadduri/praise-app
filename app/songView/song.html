@@ -11,9 +11,14 @@
     </form>
     
     
-        <div class="container" style="white-space: pre;">
+        <!--<div class="container" style="white-space: pre;">
              <table class="table table-striped">
                 <tr> <td> {{selectedSong}}</td> </tr>
             </table>
-        </div>
+        </div>-->
+        
+        <span ng-repeat="line in (text | newlines) track by $index">
+            <p> {{line}}</p>
+            <br>
+        </span>
 </div>
