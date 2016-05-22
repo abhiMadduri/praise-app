@@ -38,7 +38,8 @@ angular.module('myApp.songs', ['ngRoute'])
                 }
                 var songObject = $scope.dataList.songs[$routeParams.id];
                 if($routeParams.lang === "tel") {
-                   $scope.selectedSong = songObject["lyrics_tel"];
+                  // $scope.selectedSong = str.replace(new RegExp('\n','g'), '<br />')
+                  $scope.selectedSong =  songObject["lyrics_tel"];
                 } else if($routeParams.lang === "en" || $routeParams.lang === "eng") {
                    $scope.selectedSong = songObject["lyrics_en"];
                 }
@@ -54,7 +55,6 @@ angular.module('myApp.songs', ['ngRoute'])
         
         $scope.linkClicked = function (path) {
            var url = $location.url() + "/" + path;
-            console.log("link clicked.. " + url);
             $location.path(url);
         }
 
@@ -83,4 +83,10 @@ angular.module('myApp.songs', ['ngRoute'])
             return input.slice(start);
         }
     }]
-    );
+    )
+    
+    .filter('newlines', function() {
+        return function(text) {
+            return text.split(/\n/g);
+        };
+     });
